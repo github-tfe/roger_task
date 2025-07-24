@@ -17,16 +17,21 @@ This Terraform configuration allows you to manage multiple Azure Key Vaults and 
 
 ## 📁 Folder Structure
 ```
-root/
-│
+roger_mission/
 ├── main.tf
 ├── variables.tf
-├── project.auto.tfvars`
+├── outputs.tf
+├── project.auto.tfvars
 ├── README.md
-└── modules/
-├── keyvault/
-└── storage_account/
-
+├── modules/
+│   ├── keyvault/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   └── storage_account/
+│       ├── main.tf
+│       ├── variables.tf
+│       └── outputs.tf
 ```
 
 
