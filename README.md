@@ -16,7 +16,7 @@ This Terraform configuration allows you to manage multiple Azure Key Vaults and 
   - Public access control
 
 ## 📁 Folder Structure
-
+```
 root/
 │
 ├── main.tf
@@ -26,6 +26,9 @@ root/
 └── modules/
 ├── keyvault/
 └── storage_account/
+
+```
+
 
 ## 🔧 Input Variables
 
