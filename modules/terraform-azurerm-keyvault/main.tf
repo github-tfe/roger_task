@@ -57,7 +57,7 @@ resource "azurerm_key_vault_access_policy" "terraform_default_policies" {
 }
 
 resource "azurerm_key_vault_access_policy" "custom_policies" {
-  for_each = var.create_custom_policies ? { for x in var.custom_policy : x.policy_name => x } : {}
+  for_each                = var.create_custom_policies ? { for x in var.custom_policy : x.policy_name => x } : {}
   key_vault_id            = azurerm_key_vault.main.id
   tenant_id               = data.azurerm_client_config.current.tenant_id
   object_id               = each.value.object_id
@@ -68,7 +68,7 @@ resource "azurerm_key_vault_access_policy" "custom_policies" {
 }
 
 resource "azurerm_key_vault_certificate" "importing" {
-  for_each = var.create_import_certificates ? { for x in var.import_certificates : x.certificate_name => x } : {}
+  for_each     = var.create_import_certificates ? { for x in var.import_certificates : x.certificate_name => x } : {}
   name         = lower(format("%s-cert", each.value.certificate_name))
   key_vault_id = azurerm_key_vault.main.id
 
@@ -98,7 +98,7 @@ resource "azurerm_key_vault_certificate" "importing" {
 
 
 resource "azurerm_key_vault_certificate" "generating" {
-  for_each = var.create_generate_certificates ? { for x in var.generate_certificates : x.certificate_name => x } : {}
+  for_each     = var.create_generate_certificates ? { for x in var.generate_certificates : x.certificate_name => x } : {}
   name         = lower(format("%s-cert", each.value.certificate_name))
   key_vault_id = azurerm_key_vault.main.id
 

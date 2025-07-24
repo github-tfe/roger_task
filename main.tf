@@ -33,6 +33,7 @@ module "storage_account" {
   account_replication_type      = lookup(each.value, "account_replication_type")
   public_network_access_enabled = lookup(each.value, "public_network_access_enabled")
   resource_group_name           = each.value.resource_group_name
+  location                      = lookup(each.value, "location")
   containers                    = lookup(each.value, "containers", {})
   gen2fs                        = lookup(each.value, "gen2fs", {})
   shares                        = lookup(each.value, "shares", [])
